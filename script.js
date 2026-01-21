@@ -291,7 +291,7 @@ class HabitTracker {
         this.activities = this.activities.filter(activity => activity.date !== today);
         this.saveActivities();
         this.updateUI();
-        this.showNotification('Today\'s data cleared');
+        this.showNotification("Today's data cleared");
     }
 
     exportData() {
@@ -312,55 +312,17 @@ class HabitTracker {
     showNotification(message) {
         // Create a simple notification
         const notification = document.createElement('div');
+        notification.className = 'notification';
         notification.textContent = message;
-        notification.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #10b981;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            animation: slideIn 0.3s ease-out;
-        `;
         
         document.body.appendChild(notification);
         
         setTimeout(() => {
-            notification.style.animation = 'slideOut 0.3s ease-out';
+            notification.classList.add('notification-hide');
             setTimeout(() => notification.remove(), 300);
         }, 3000);
     }
 }
-
-// Add animations
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideIn {
-        from {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
 
 // Initialize the tracker
 let tracker;
