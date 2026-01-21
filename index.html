@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker - Your Path to Success</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Habit Tracker</h1>
+            <p class="tagline">Track your 24 hours - Your journey from zero to success</p>
+        </header>
+
+        <main>
+            <!-- Add Habit Form -->
+            <section class="add-habit-section">
+                <h2>Track Your Activity</h2>
+                <form id="habitForm">
+                    <div class="form-group">
+                        <label for="habitName">Activity Name:</label>
+                        <input type="text" id="habitName" required placeholder="e.g., Study, Exercise, Work">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="startTime">Start Time:</label>
+                            <input type="time" id="startTime" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="endTime">End Time:</label>
+                            <input type="time" id="endTime" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <select id="category" required>
+                            <option value="">Select Category</option>
+                            <option value="productive">Productive</option>
+                            <option value="health">Health & Fitness</option>
+                            <option value="learning">Learning</option>
+                            <option value="work">Work</option>
+                            <option value="social">Social</option>
+                            <option value="rest">Rest & Sleep</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Notes (optional):</label>
+                        <textarea id="notes" rows="2" placeholder="Any additional notes..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Add Activity</button>
+                </form>
+            </section>
+
+            <!-- Daily Summary -->
+            <section class="summary-section">
+                <h2>Today's Summary</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Activities Logged</h3>
+                        <p class="stat-value" id="totalActivities">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Time Tracked</h3>
+                        <p class="stat-value" id="totalTime">0h 0m</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Productive Time</h3>
+                        <p class="stat-value" id="productiveTime">0h 0m</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Success Score</h3>
+                        <p class="stat-value" id="successScore">0%</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Activity Timeline -->
+            <section class="timeline-section">
+                <h2>Today's Activities</h2>
+                <div id="activityList" class="activity-list">
+                    <p class="empty-state">No activities tracked yet. Start tracking your day!</p>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <h2>Activity Analysis</h2>
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <h3>Time by Category</h3>
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Daily Progress</h3>
+                        <canvas id="progressChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Actions -->
+            <section class="actions-section">
+                <button id="clearData" class="btn-secondary">Clear Today's Data</button>
+                <button id="exportData" class="btn-secondary">Export Data</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>🚀 Your journey to success starts with tracking your habits</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
